@@ -1,61 +1,67 @@
-const { getRacingSnapShot } = require('../utils/outputGenerator');
-const Car = require('./Car');
-const Random = require('../utils/Random');
+import Car from './Car.js';
+import Random from '../utils/Random.js';
+import { getRacingSnapShot } from '../utils/outputGenerator.js';
+import { getMaxNumberInArray } from '../utils/numberHandler.js';
+import { MOVELESS_CAR } from '../constants/values.js';
 
-class RacingGame {
-  #instance = {
+const RacingGame = {
+  instance: {
     cars: [],
     snapShots: [],
-  };
+  },
 
-  constructor(names) {
-    this.#instance.cars = this.#generateCars(names);
-  }
+  init(names) {
+    this.instance.cars = this.generateCars(names);
+  },
 
   get snapShots() {
-    return this.#instance.snapShots;
-  }
+    return this.instance.snapShots;
+  },
 
-  #generateCars(names) {
-    return names.map(name => new Car(name));
-  }
+  generateCars(names) {
+    const cars = names.map(name => Car(name));
+    console.log(cars);
+
+    return cars;
+  },
 
   raceNTimes(n) {
-    Array(n)
-      .fill()
-      .forEach(() => this.race());
-  }
+    Array.from({ length: n }).forEach(() => this.race());
+  },
 
   race() {
-    this.#moveCars();
+    this.moveCars();
 
-    this.#instance.snapShots = this.#updateSnapShots();
-  }
+    this.instance.snapShots = this.updateSnapShots();
+  },
 
-  #moveCars() {
-    this.#instance.cars.forEach(car => car.move(Random.generateNumber()));
-  }
+  moveCars() {
+    this.instance.cars.forEach(car => car.move(Random.generateNumber()));
+  },
 
-  #updateSnapShots() {
-    return [...this.#instance.snapShots, this.#takeSnapShots()];
-  }
+  updateSnapShots() {
+    return [...this.instance.snapShots, this.takeSnapShots()];
+  },
 
-  #takeSnapShots() {
-    return this.#instance.cars.map(car => getRacingSnapShot(car)).join('\n');
-  }
+  takeSnapShots() {
+    return this.instance.cars.map(car => getRacingSnapShot(car)).join('\n');
+  },
 
   getWinners() {
-    const max = Math.max(...this.#instance.cars.map(car => car.position));
-    const winners = this.#instance.cars
-      .filter(car => car.position === max)
-      .map(car => car.name);
+    const maxOfPosition = this.getMaxOfPosition();
 
-    return winners;
-  }
+    return this.instance.cars
+      .filter(car => car.position === maxOfPosition)
+      .map(car => car.name);
+  },
+
+  getMaxOfPosition() {
+    return getMaxNumberInArray(this.instance.cars.map(car => car.position));
+  },
 
   isAllFailed() {
-    return this.#instance.cars.every(car => car.position === 0);
-  }
-}
+    return this.instance.cars.every(car => car.position === MOVELESS_CAR);
+  },
+};
 
-module.exports = RacingGame;
+export default RacingGame;

@@ -1,5 +1,5 @@
-const { InputError, ERROR_CODE } = require('../utils/Errors');
-const STRING_VALIDATOR_CONDITION = require('../constants/condition');
+import { InputError, ERROR_CODE } from '../utils/Errors.js';
+import STRING_VALIDATOR_CONDITION from '../constants/condition.js';
 
 const StringValidator = {
   throwStringValidatorError({ code, payload }, value) {
@@ -47,4 +47,4 @@ const StringValidator = {
   },
 };
 
-module.exports = StringValidator;
+export default StringValidator;

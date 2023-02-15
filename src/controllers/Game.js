@@ -1,9 +1,9 @@
-const Console = require('../utils/Console');
-const Inputs = require('../view/Inputs');
-const Outputs = require('../view/Outputs');
-const RacingGame = require('../domain/RacingGame');
+const RacingGame = require('../domain/RacingGame.js');
+const Console = require('../utils/Console.js');
+const Inputs = require('../view/Inputs.js');
+const Outputs = require('../view/Outputs.js');
 
-class Game {
+export default class Game {
   #racingGame;
   #car = {
     count: 0,
@@ -26,11 +26,10 @@ class Game {
   start() {
     this.#racingGame = new RacingGame(this.#car.names);
     this.#racingGame.raceNTimes(this.#car.count);
-    this.#racingGame.isAllFailed() && this.start();
-  }
 
-  restart() {
-    this.start();
+    if (this.#racingGame.isAllFailed()) {
+      this.start();
+    }
   }
 
   awards() {
@@ -43,5 +42,3 @@ class Game {
     Console.close();
   }
 }
-
-module.exports = Game;

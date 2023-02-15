@@ -1,6 +1,7 @@
 const INITIAL_POSITION = 0;
 const STEP = 1;
 const MOVE_CONDITION = 4;
+const MOVELESS_CAR = 0;
 const POSITION_SYMBOL = '-';
 const NAME = Object.freeze({
   MIN: 1,
@@ -11,10 +12,11 @@ const TRY_COUNT = Object.freeze({
   MAX: 10,
 });
 
-module.exports = {
+export {
   INITIAL_POSITION,
   STEP,
   MOVE_CONDITION,
+  MOVELESS_CAR,
   POSITION_SYMBOL,
   NAME,
   TRY_COUNT,

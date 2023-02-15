@@ -1,9 +1,9 @@
-const { NAME, TRY_COUNT } = require('../constants/values');
-const {
+import StringValidator from './StringValidator.js';
+import { NAME, TRY_COUNT } from '../constants/values.js';
+import {
   ALPHA_WITH_COMMA,
   ONLY_NUMBERS,
-} = require('../constants/regularExpression');
-const StringValidator = require('./StringValidator');
+} from '../constants/regularExpression.js';
 
 const CarValidator = {
   checkName(names) {
@@ -29,4 +29,4 @@ const CarValidator = {
   },
 };
 
-module.exports = CarValidator;
+export default CarValidator;

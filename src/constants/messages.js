@@ -8,7 +8,4 @@ const QUERY = Object.freeze({
   TRY_COUNT: '시도할 회수는 몇회인가요? (1~10회 입력 가능)\n',
 });
 
-module.exports = {
-  QUERY,
-  MESSAGE,
-};
+export { QUERY, MESSAGE };

@@ -5,4 +5,4 @@ const ERROR_CODE = Object.freeze({
   WRONG_FORMAT: 'WRONG_FORMAT',
 });
 
-module.exports = ERROR_CODE;
+export default ERROR_CODE;

@@ -9,11 +9,17 @@
     "no-console": "off",
 		"prettier/prettier": "error"
   },
+	"parserOptions": {
+		"parser": "babel-eslint",
+      "sourceType": "module",
+    "allowImportExportEverywhere": true,
+		"ecmaVersion": "latest"
+	},
   "env": {
+		"browser": true,
+    "commonjs": true,
     "es6": true,
-@@ -19,5 +15,5 @@
-    "ecmaVersion": "latest",
-    "sourceType": "module"
+    "node": true
   },
   "extends": ["eslint:recommended", "plugin:prettier/recommended"]
 }

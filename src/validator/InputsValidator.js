@@ -1,5 +1,5 @@
-const CarValidator = require('./CarValidator');
-const Outputs = require('../view/Outputs');
+import CarValidator from './CarValidator.js';
+import Outputs from '../view/Outputs.js';
 
 const InputsValidator = {
   readCarName(names, { onError: errorCallback }) {
@@ -21,4 +21,4 @@ const InputsValidator = {
   },
 };
 
-module.exports = InputsValidator;
+export default InputsValidator;

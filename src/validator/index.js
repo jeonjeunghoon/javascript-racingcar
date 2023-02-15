@@ -1,5 +1,5 @@
-const CarValidator = require('./CarValidator');
-const StringValidator = require('./StringValidator');
-const InputsValidator = require('./InputsValidator');
+import CarValidator from './CarValidator.js';
+import StringValidator from './StringValidator.js';
+import InputsValidator from './InputsValidator.js';
 
-module.exports = { ...StringValidator, CarValidator, InputsValidator };
+export default { ...StringValidator, CarValidator, InputsValidator };

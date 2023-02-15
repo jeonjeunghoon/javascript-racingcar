@@ -1,5 +1,5 @@
-const Console = require('../utils/Console');
-const { getWinnersMessage } = require('../utils/outputGenerator');
+import Console from '../utils/Console.js';
+import { getWinnersMessage } from '../utils/outputGenerator.js';
 
 const Outputs = {
   printError(error) {
@@ -19,4 +19,4 @@ const Outputs = {
   },
 };
 
-module.exports = Outputs;
+export default Outputs;

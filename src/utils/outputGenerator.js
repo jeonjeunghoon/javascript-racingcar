@@ -1,5 +1,5 @@
-const { MESSAGE } = require('../constants/messages');
-const { POSITION_SYMBOL } = require('../constants/values');
+import { MESSAGE } from '../constants/messages.js';
+import { POSITION_SYMBOL } from '../constants/values.js';
 
 const getPositionLine = position => {
   return POSITION_SYMBOL.repeat(position);
@@ -13,4 +13,4 @@ const getWinnersMessage = winnerSet => {
   return `${winnerSet.join(',')}${MESSAGE.WINNERS}`;
 };
 
-module.exports = { getWinnersMessage, getRacingSnapShot };
+export { getWinnersMessage, getRacingSnapShot };

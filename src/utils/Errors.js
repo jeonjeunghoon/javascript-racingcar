@@ -1,5 +1,5 @@
-const ERROR_CODE = require('../constants/errorCode');
-const ERROR_MESSAGE = require('../constants/errorMessage');
+import ERROR_CODE from '../constants/errorCode.js';
+import ERROR_MESSAGE from '../constants/errorMessage.js';
 
 const createParams = ({ code, payload = null }, value) => {
   if (!ERROR_MESSAGE[code]) {
@@ -18,4 +18,4 @@ class InputError extends Error {
   }
 }
 
-module.exports = { InputError, ERROR_CODE };
+export { InputError, ERROR_CODE };

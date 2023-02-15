@@ -1,6 +1,6 @@
-const InputsValidator = require('../validator/InputsValidator');
-const Console = require('../utils/Console');
-const { QUERY } = require('../constants/messages');
+import InputsValidator from '../validator/InputsValidator.js';
+import Console from '../utils/Console.js';
+import { QUERY } from '../constants/messages.js';
 
 const Inputs = {
   async readCarName({ onError } = { onError: null }) {
@@ -20,4 +20,4 @@ const Inputs = {
   },
 };
 
-module.exports = Inputs;
+export default Inputs;

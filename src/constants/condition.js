@@ -6,4 +6,4 @@ const STRING_VALIDATOR_CONDITION = {
     regExp instanceof RegExp && regExp.test(value),
 };
 
-module.exports = STRING_VALIDATOR_CONDITION;
+export default STRING_VALIDATOR_CONDITION;

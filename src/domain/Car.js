@@ -1,37 +1,34 @@
-const {
-  INITIAL_POSITION,
-  STEP,
-  MOVE_CONDITION,
-} = require('../constants/values');
+import { INITIAL_POSITION, STEP, MOVE_CONDITION } from '../constants/values.js';
 
-class Car {
-  #name;
+const Car = name => {
+  instance = {
+    name: '',
+    position: INITIAL_POSITION,
+  };
 
-  #position = INITIAL_POSITION;
+  const init = name => {
+    this.instance.name = name;
+  };
 
-  constructor(name) {
-    this.#name = name;
-  }
+  const getName = () => {
+    return this.instance.name;
+  };
 
-  get name() {
-    return this.#name;
-  }
+  const getPosition = () => {
+    return this.instance.position;
+  };
 
-  get position() {
-    return this.#position;
-  }
-
-  move(number) {
+  const move = number => {
     if (!this.shouldMove(number)) {
       return;
     }
 
-    this.#position += STEP;
-  }
+    this.instance.position += STEP;
+  };
 
-  shouldMove(number) {
+  const shouldMove = number => {
     return number >= MOVE_CONDITION;
-  }
-}
+  };
+};
 
-module.exports = Car;
+export default Car;

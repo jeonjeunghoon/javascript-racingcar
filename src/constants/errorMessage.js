@@ -6,4 +6,4 @@ const ERROR_MESSAGE = Object.freeze({
     `[ERROR] ${min}이상 ${max}이하의 문자열만 입력해 주세요.`,
 });
 
-module.exports = ERROR_MESSAGE;
+export default ERROR_MESSAGE;
